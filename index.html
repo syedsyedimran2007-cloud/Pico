@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PICO — Tiny AI Companion</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <main class="wrap" role="main" aria-label="PICO AI">
+    <div class="pico" id="picoRoot">
+      <div class="orb" id="orb" aria-hidden="false">
+        <div class="eyes" id="eyes">
+          <div class="eye" id="eye-left" aria-hidden="true"></div>
+          <div class="eye" id="eye-right" aria-hidden="true"></div>
+        </div>
+        <div class="nameplate">P I C O</div>
+      </div>
+
+      <div class="controlsRow">
+        <div class="controls">
+          <button class="btn" id="voiceToggle">Enable Voice</button>
+          <button class="btn" id="speakBtn" title="Speak once">🎤 Speak</button>
+          <button class="btn" id="demoBtn">Demo</button>
+          <button class="btn" id="adminToggle">Admin</button>
+        </div>
+
+        <div class="voiceControls">
+          <label class="small">Voice:</label>
+          <select id="voiceSelect"></select>
+
+          <label class="small">Language:</label>
+          <select id="langSelect"></select>
+
+          <label class="small">Pitch</label>
+          <input id="pitch" type="range" min="0.5" max="1.5" value="0.98" step="0.02">
+
+          <label class="small">Rate</label>
+          <input id="rate" type="range" min="0.6" max="1.4" value="0.98" step="0.02">
+        </div>
+      </div>
+
+      <div class="statusLine">
+        <div id="status">Voice: off · Click "Enable Voice"</div>
+      </div>
+
+      <div class="footer">
+        <div>Created by Rex</div>
+        <div>Version 1.0.0</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Admin Modal -->
+  <div id="adminModal" class="modal" aria-hidden="true">
+    <div class="modalContent" role="dialog" aria-label="PICO Admin">
+      <header>
+        <strong>Admin — Teach PICO (saved to browser)</strong>
+        <button class="btn small" id="closeAdmin">Close</button>
+      </header>
+
+      <section class="adminSection">
+        <form id="addForm">
+          <input id="qInput" placeholder="Question (e.g., who made you)" />
+          <input id="aInput" placeholder="Answer (exact reply PICO will speak)" />
+          <button class="btn" type="submit">Add / Save</button>
+        </form>
+
+        <div id="qaList" class="qaList" aria-live="polite"></div>
+
+        <div class="adminFooter">
+          <button class="btn" id="exportBtn">Export Q&A</button>
+          <button class="btn" id="importBtn">Import Q&A</button>
+          <input id="importFile" type="file" accept=".json" style="display:none" />
+          <button class="btn" id="resetBtn">Reset to Defaults</button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
