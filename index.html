@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PICO — Tiny AI Companion</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="card" role="application" aria-label="PICO AI Companion">
+    
+    <!-- Left: Avatar -->
+    <div class="avatar">
+      <div class="orb">
+        <div class="eyes">
+          <div class="eye" id="eye-left"></div>
+          <div class="eye" id="eye-right"></div>
+        </div>
+      </div>
+      <div style="flex:1;">
+        <div class="name">P I C O</div>
+        <div class="subtitle">Your tiny AI companion</div>
+        <div style="height:10px"></div>
+        <div style="display:flex;gap:8px;justify-content:center;">
+          <button class="btn primary" id="voiceToggle">Enable Voice</button>
+          <button class="btn" id="wakeDemo">Wake Demo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Chat panel -->
+    <div class="panel">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <strong style="letter-spacing:1px">Chat with PICO</strong>
+        <div class="status" id="status">Voice: off · Waiting for wake word</div>
+      </div>
+
+      <div class="chat" id="chat" aria-live="polite"></div>
+
+      <div class="inputRow">
+        <input class="text" id="userInput" placeholder='Type "Hey PICO" or ask a question...' />
+        <button class="btn primary" id="sendBtn">Send</button>
+        <button class="btn" id="speakBtn" title="Speak once">🎤</button>
+      </div>
+
+      <footer class="pageFooter">
+        <div>Created by Rex</div>
+        <div>Version 1.0.0</div>
+      </footer>
+    </div>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
